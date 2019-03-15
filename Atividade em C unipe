@@ -1,0 +1,318 @@
+#include <stdio.h>
+#include <math.h>
+
+int fatorial();
+int menu();
+int primo();
+int primos();
+int potenciacao();
+int raiz();
+int bissexto();
+int media();
+int mediaponderada();
+int nomematr();
+
+int main (){
+
+    int     codigo;
+
+    codigo = menu(codigo);
+
+    while(codigo != 0){
+
+        switch(codigo){
+
+            case 1:
+                fatorial();
+                codigo =menu(codigo);
+            break;
+
+            case 2:
+                primo();
+                codigo =menu(codigo);
+            break;
+
+            case 3:
+                primos();
+                codigo =menu(codigo);
+            break;
+
+            case 4:
+                potenciacao();
+                codigo =menu(codigo);
+            break;
+
+            case 5:
+                raiz();
+                codigo =menu(codigo);
+            break;
+
+            case 6:
+                bissexto();
+                codigo =menu(codigo);
+            break;
+
+            case 7:
+                media();
+                codigo =menu(codigo);
+            break;
+
+            case 8:
+                mediaponderada();
+                codigo =menu(codigo);
+            break;
+
+            case 9:
+                nomematr();
+                codigo =menu(codigo);
+            break;
+
+            default:
+                printf("Digite um numero valido !!!\n\n");
+                codigo =menu(codigo);
+            break;
+
+        }
+
+    }
+
+
+    return 0;
+}
+
+
+//CRIA O MENU USADO NA FUNÇÃO PRICIPAL.
+int menu (int  codigo){
+
+    printf("\t\t\t\t\t________________________________\n");
+    printf("\t\t\t\t\t|******************************|\n");
+    printf("\t\t\t\t\t|*                            *|\n");
+    printf("\t\t\t\t\t|*       1-FATORIAL           *|\n");
+    printf("\t\t\t\t\t|*       2-PRIMO              *|\n");
+    printf("\t\t\t\t\t|*       3-PRIMOS             *|\n");
+    printf("\t\t\t\t\t|*       4-POTENCIACAO        *|\n");
+    printf("\t\t\t\t\t|*       5-RAIZ               *|\n");
+    printf("\t\t\t\t\t|*       6-BISSEXTO           *|\n");
+    printf("\t\t\t\t\t|*       7-MEDIA              *|\n");
+    printf("\t\t\t\t\t|*       8-MEDIA PONDERADA    *|\n");
+    printf("\t\t\t\t\t|*       9-NOME/MATR          *|\n");
+    printf("\t\t\t\t\t|*       0-SAIR               *|\n");
+    printf("\t\t\t\t\t|*                            *|\n");
+    printf("\t\t\t\t\t|******************************|\n");
+    printf("\t\t\t\t\t|______________________________|\n\n\n\n");
+
+    printf("Digite uma opcao: ");
+    scanf("%i", &codigo);
+
+return(codigo);
+}
+
+
+
+//FUNÇÃO USADA PARA CALCULA O FATORIAL OPÇÃO 1.
+int fatorial(){
+
+   int     numero,x,resultado;
+
+   printf("\nDigite um numero para saber seu fatorial\n");
+   scanf("%i", &numero);
+
+   resultado = numero;
+
+   for(x = numero;x>1;x--){
+
+        resultado = resultado * (x-1);
+
+   }
+
+    printf("\nFatorial de %i eh %i\n\n", numero,resultado);
+    return 0;
+}
+
+
+
+//FUNÇÃO USADA PARA DETERMINAR SE O NUMERO E PRIMO  OPÇÃO 2.
+int primo(){
+
+    int     numero,x,resultado = 0;
+
+   printf("\nDigite um numero para saber se eh primo\n");
+   scanf("%i", &numero);
+
+    for(x=2;x<numero/2;x++){
+
+        if((numero%x) == 0){
+            resultado++;
+            break;
+        }
+    }
+
+    if(resultado == 0){
+
+        printf("%i eh primo\n\n", numero);
+
+    }else{
+
+        printf("%i nao eh primo\n\n", numero);
+
+    }
+    return 0;
+}
+
+
+
+//FUNÇÃO USADA PARA DETERMINAR SE MAIS DE UM NUMERO E PRIMO OPÇÃO 3.
+int primos(){
+
+    int     quantidade,x;
+
+    printf("\n\nDigite a quantidade de numeros que deseja testar:\n\n");
+    scanf("%i", &quantidade);
+
+    for(x=0;x<quantidade;x++){
+
+        primo();
+
+    }
+    return 0;
+}
+
+
+
+//FUNÇÃO USADA PARA ELEVAR UM NUMERO OPÇÃO 4.
+int potenciacao(){
+
+    float   a,total;
+    int       b;
+
+    printf("\n\nDigite a base da potencia\n");
+    scanf("%f", &a);
+    printf("\nDigite o expoente da potencia\n");
+    scanf("%i", &b);
+
+    total = pow(a,b);
+
+    printf("\nSua potencia eh: %.1e\n", total);
+
+    return 0;
+}
+
+
+
+//FUNÇÃO USADA PARA TIRAR A RAIZ DE UM NUMERO OPÇÃO 5.
+int raiz(){
+    float   a,total,potencia;
+    int       b;
+
+    printf("\n\nDigite o radicando\n");
+    scanf("%f", &a);
+    printf("\nDigite  o radical\n");
+    scanf("%i", &b);
+
+    potencia=1.0/b;
+    total = pow(a,potencia);
+
+    printf("\nSua raiz eh: %.1e\n", total);
+
+    return 0;
+
+}
+
+
+
+//FUNÇÃO USADA PARA SABER SE O ANO E BISSEXTO OPÇÃO 6.
+int bissexto(){
+
+    int ano;
+
+    printf("\n\nDigite o ano que deseja consultar\n");
+    scanf("%i", &ano);
+
+    if((ano%4) == 0){
+
+        printf("\n\n%i eh bissexto\n\n", ano);
+
+    }else{
+
+        printf("\n\n%i nao eh bissexto\n\n", ano);
+
+    }
+
+    return 0;
+}
+
+
+
+//FUNÇÃO PARA CALCULAR A MEDIA OPÇÃO 7.
+int media(){
+
+    float       nota1,nota2,notaFinal;
+
+    printf("\n\nDigite a primeira nota:\n");
+    scanf("%f", &nota1);
+
+    printf("\nDigite a segunda nota:\n");
+    scanf("%f", &nota2);
+
+    if(nota1 >= 0 && nota1 <= 10 && nota2 >= 0 && nota2 <= 10){
+
+        notaFinal = (nota1 + nota2)/2;
+        printf("\n\nA media final eh %.1f\n\n", notaFinal);
+
+    }else{
+        printf("\n\nNotas invalidas\n\n");
+
+    }
+
+    return 0;
+}
+
+
+
+//FUNÇÃO PARA CALCULAR MEDIA PONDERADA OPÇÃO 8.
+int mediaponderada (){
+
+    float       nota1,nota2,nota3,media;
+
+    printf("\n\nDigite a primeira nota:\n");
+    scanf("%f", &nota1);
+
+    printf("\nDigite a segunda nota:\n");
+    scanf("%f", &nota2);
+
+    printf("\nDigite a terceira nota:\n");
+    scanf("%f", &nota3);
+
+    media = (nota1 + nota2 +(nota3*2))/4;
+
+    if(media >= 60){
+
+        printf("\n\nAprovado com media %.1f\n\n", media);
+
+    }else{
+
+        printf("\n\nReprovado com media %.1f\n\n",media);
+
+    }
+
+    return 0;
+}
+
+
+
+//FUNÇÃO QUE IMPRIME NOME E MATRICULA EM HEXADECIMAL OPÇÃO 9.
+int nomematr(){
+
+    printf("\t\t\t\t\t________________________________\n");
+    printf("\t\t\t\t\t|******************************|\n");
+    printf("\t\t\t\t\t| Nome: Guilherme Barbosa      |\n");
+    printf("\t\t\t\t\t|______________________________|\n");
+    printf("\t\t\t\t\t|  Matricula: 6be2bf8d         |\n");
+    printf("\t\t\t\t\t|______________________________|\n\n\n\n");
+
+    return 0;
+}
+
+
+
+
