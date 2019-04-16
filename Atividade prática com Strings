@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+//strcpy
+
+  char nome[15];
+
+  strcpy(nome, "guilherme");
+
+  printf("Nome = %s\n", nome);
+
+
+//strcmp
+  char nota[3] = "abc";
+  char nota2[3] = "abd";
+  int retorno;
+
+  retorno = strcmp(nota, nota2);
+  
+  printf("retorno = %d\n", retorno);
+
+
+//strcat
+
+  char str[10] = "Atividade";
+
+  strcat(str, " de C");
+
+  printf("str = %s\n", str);
+
+
+//strlen
+
+  char str3[5] = "Curso";
+  int tamanho;
+
+  tamanho = strlen(str3);
+
+  printf("O tamanho da string %s é %d\n", str, tamanho);
+
+
+return 0;
+}
