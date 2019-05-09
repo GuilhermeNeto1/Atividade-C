@@ -1,0 +1,136 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+void menu(){
+    int j, coluna;
+    char i, direcao;
+
+     system("COLOR 04");
+     char matriz[8] [8] = {{0, 65, 66, 67, 68, 69, 70, 71},
+                                      {49, 0, 0, 220, 220, 220, 0, 0},
+                                      {50, 0, 0, 220, 220, 220, 0, 0},
+                                      {51, 220, 220, 220, 220, 220, 220, 220},
+                                      {52, 220, 220, 220, 176, 220, 220, 220},
+                                      {53, 220, 220, 220, 220, 220, 220, 220},
+                                      {54, 0, 0, 220, 220, 220, 0, 0},
+                                      {55, 0, 0, 220, 220, 220, 0, 0}};
+
+        printf("\n\n\n");
+        for (int m = 0; m < 8; ++m){
+                printf("  ");
+                for (int n = 0; n < 8; ++n) {
+                        printf("  %c ", matriz [m] [n]);
+                        printf("\t");
+                }
+                printf("\n\n");
+        }
+        printf("\n\n");
+
+        printf("Informe a coluna: ");
+        scanf("\n%c", &i);
+
+        switch (i){
+            case 'a':
+                coluna = 1;
+            break;
+
+            case 'b':
+                coluna = 2;
+            break;
+
+            case 'c':
+                coluna = 3;
+            break;
+
+            case 'd':
+                coluna = 4;
+            break;
+
+            case 'e':
+                coluna = 5;
+            break;
+
+            case 'f':
+                coluna = 6;
+            break;
+
+            case 'g':
+                coluna = 7;
+            break;
+
+            default:
+                printf(" \ncordenada invalida\n");
+            break;
+        }
+
+        printf("\nInforme a fileira: ");
+        scanf("\n%d", &j);
+        if(j == 0){printf(" \ncordenada invalida\n");}
+
+        printf("%c", matriz[coluna][j]);
+        
+        //printf("\nDigite a direção: ")
+        //scanf("\n%c ", direcao);
+        
+    }
+int main() {
+
+    //menu de introdução
+    int y,z,comando;
+
+    for( y = 0; y < 12; ++y){
+            for(z = 2; z < 10; ++z){
+                    if (z%2 == 0){
+                        system("COLOR 2");
+                        printf(" RESTA UM ");
+                    }
+                    else{
+                        system("COLOR 4");
+                        printf(" RESTA UM ");
+                    }
+            }
+    }
+    system("cls");
+    system("COLOR 6");
+
+    FILE * arquivo;
+    char texto[100];
+
+    arquivo = fopen("C:\\Users\\PC\\Desktop\\arte.txt", "r");
+    printf("%s", texto);
+    while(fgets(texto, 100, arquivo) != NULL) { printf("%s", texto); }
+
+    fclose(arquivo);
+
+    system("COLOR 2");
+    printf("\n\n(1) Iniciar o jogo");
+    printf("\n\n(2) Ver as regras\n");
+    printf("\n(3) Sair\n");
+    scanf("%d", &comando);
+
+    if(comando == 2){
+        arquivo = fopen("tabuleiro.txt", "r");
+
+        while(fgets(texto, 100, arquivo) != NULL) { printf("\n\n%s", texto); }
+
+        fclose(arquivo);
+
+    }
+    else{
+        if(comando == 1){
+            system("cls");
+            menu();
+        }
+        else{
+            if(comando == 3){
+                    return 0;
+            }
+            else{
+                    printf("Digite um dos comandos acima");
+            }
+        }
+    }
+
+return 0;
+}
